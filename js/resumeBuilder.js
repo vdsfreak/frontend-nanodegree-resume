@@ -18,7 +18,8 @@ var bio = {
 		"email" : "cgingerich@gmail.com",
 		"mobile" : "(920) 217-2348",
 		"blog" : "http://vdsfreak.com",
-		"linkedin" : "https://www.linkedin.com/in/cgingerich"
+		"linkedin" : "https://www.linkedin.com/in/cgingerich",
+		"location" : "Chapel Hill, North Carolina"
 	 }
 	],
 	"bioPic" : "http://cgs.vdsworld.com/images/me.jpg",
@@ -123,7 +124,7 @@ for(contact in bio.contacts){
   	$("#topContacts").prepend(formattedEmail);
   	
    	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[contact].mobile);
-  	$("#topContacts").prepnd(formattedMobile);
+  	$("#topContacts").prepend(formattedMobile);
 
  }
 };
