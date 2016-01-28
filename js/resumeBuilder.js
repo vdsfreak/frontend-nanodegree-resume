@@ -13,9 +13,14 @@
 var bio = {
 	"name" : "Chris Gingerich",
 	"role" : "Web design and Windows software developer",
-	"contacts" : {
+	"contacts" : [
+	 {
 		"email" : "cgingerich@gmail.com",
-	},
+		"mobile" : "(920) 217-2348",
+		"blog" : "http://vdsfreak.com",
+		"linkedin" : "https://www.linkedin.com/in/cgingerich"
+	 }
+	],
 	"bioPic" : "http://cgs.vdsworld.com/images/me.jpg",
 	"welcomeMsg" : "Welcome! Thanks for viewing my resume!",
 	"location" : "Carrboro, NC",
@@ -27,7 +32,7 @@ var education = {
 	"schools": [
 	  {
 	  	"name": "York Technical Institute",
-	  	"city": "York, PA",
+	  	"location": "York, PA",
 	  	"degree": "Associates degree",
 	  	"dates": "2007-2009",
 	  	"url": "http://yti.edu"
@@ -78,18 +83,9 @@ for(project in projects.projects){
   			$(".project-entry:last").append(formattedImage);
   		}
     };
-  	
-	//var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-    //$(".work-entry:last").append(formattedLocation);
-	//var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-    //$(".work-entry:last").append(formattedDates);
-    //var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-    //$(".work-entry:last").append(formattedDescription);
-
  }
 };
 
-projects.display();
 
 var work = {
 	"jobs" : [
@@ -97,7 +93,7 @@ var work = {
 	"title" : "IT Administrator",
 	"employer" : "InsureSign",
 	//"years" : "5",
-	"location" : "Chapel Hill",
+	"location" : "Chapel Hill, NC",
 	"dates" : "June 16, 2011 - Present",
 	"description" : "Develop Windows software for sending documents to be signed electronically."
 	},
@@ -119,10 +115,29 @@ function toTitleCase(str){
     return str.replace(/\b\w/g, function (txt) { return txt.toUpperCase(); });
 };
 
-//$("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
-//var intName = inName(bio.name);
+
+function displayContacts(){
+for(contact in bio.contacts){
+
+  	var formattedEmail = HTMLemail.replace("%data%", bio.contacts[contact].email);
+  	$("#topContacts").prepend(formattedEmail);
+  	
+   	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[contact].mobile);
+  	$("#topContacts").prepnd(formattedMobile);
+
+ }
+};
+
+
 $("#header").append(HTMLheaderName.replace("%data%", inName(bio.name)));
 $("#header").append(HTMLheaderRole.replace("%data%", bio.role));
+
+displayContacts();
+
+$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg));
+$("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
+
+projects.display();
 
 if (bio.skills.length > 0){
 	$("#header").append(HTMLskillsStart);
@@ -166,7 +181,7 @@ $("#mapDiv").append(googleMap);
 
 //$("#main").append(internationalizeButton);
 //$("#header").append(HTMLheaderRole.replace("%data%", bio.role));
-//$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg));
+
 //$("#header").append(HTMLlocation.replace("%data%", bio.location));
 //$("#header").append(HTMLemail.replace("%data%", bio.contacts.email));
 //$("#header").append(HTMLskills.replace("%data%", bio.skills));
