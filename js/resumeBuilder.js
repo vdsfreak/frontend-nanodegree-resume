@@ -33,7 +33,7 @@ var education = {
 	"schools": [
 	  {
 	  	"name": "York Technical Institute",
-	  	"location": "York, PA",
+	  	"location": "York, Pennsylvania",
 	  	"degree": "Associates degree",
 	  	"dates": "2007-2009",
 	  	"url": "http://yti.edu"
@@ -94,7 +94,7 @@ var work = {
 	"title" : "IT Administrator",
 	"employer" : "InsureSign",
 	//"years" : "5",
-	"location" : "Chapel Hill, NC",
+	"location" : "Chapel Hill, North Carolina",
 	"dates" : "June 16, 2011 - Present",
 	"description" : "Develop Windows software for sending documents to be signed electronically."
 	},
@@ -172,6 +172,8 @@ for(job in work.jobs){
 displayWork();
 
 $("#mapDiv").append(googleMap);
+
+//console.log(locaions);
 
 //$(document).click(function(loc) {
 //	var x = loc.pageX;
