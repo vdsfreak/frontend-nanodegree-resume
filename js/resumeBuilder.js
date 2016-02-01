@@ -18,13 +18,12 @@ var bio = {
 		"email" : "cgingerich@gmail.com",
 		"mobile" : "(920) 217-2348",
 		"blog" : "http://vdsfreak.com",
-		"linkedin" : "https://www.linkedin.com/in/cgingerich",
-		"location" : "Chapel Hill, North Carolina"
+		"linkedin" : "https://www.linkedin.com/in/cgingerich"
 	 }
-	],
+	 ],
 	"bioPic" : "http://cgs.vdsworld.com/images/me.jpg",
 	"welcomeMsg" : "Welcome! Thanks for viewing my resume!",
-	"location" : "Carrboro, NC",
+	"location" : "Carrboro, North Carolina",
 	"skills" : [" Visual Dialogscript", " JavaScript", " HTML", " Adobe Photoshop", " AutoCAD"],
 };
 
@@ -48,6 +47,19 @@ var education = {
 	   }
 	 ]
    };
+
+var work = {
+	"jobs" : [
+	{
+	"title" : "IT Administrator",
+	"employer" : "InsureSign",
+	//"years" : "5",
+	"location" : "Chapel Hill, North Carolina",
+	"dates" : "June 16, 2011 - Present",
+	"description" : "Develop Windows software for sending documents to be signed electronically."
+	},
+   ]
+};
 
 var projects = {
 	"projects" : [
@@ -88,49 +100,20 @@ for(project in projects.projects){
 };
 
 
-var work = {
-	"jobs" : [
-	{
-	"title" : "IT Administrator",
-	"employer" : "InsureSign",
-	//"years" : "5",
-	"location" : "Chapel Hill, North Carolina",
-	"dates" : "June 16, 2011 - Present",
-	"description" : "Develop Windows software for sending documents to be signed electronically."
-	},
-   ]
-};
-
-function inName(name){
-	name = name.trim();
-	var nameArray = name.split(" ");
-	//console.log(nameArray);
-	var fName = toTitleCase(nameArray[0]);
-	var lName = nameArray[1].toUpperCase();
-	fullName = fName + " " + lName;
-	console.log(fullName);
-	return fullName;
-};
-
-function toTitleCase(str){
-    return str.replace(/\b\w/g, function (txt) { return txt.toUpperCase(); });
-};
-
-
 function displayContacts(){
 for(contact in bio.contacts){
-
+    //$("#header").append(HTMLcontactStart);
   	var formattedEmail = HTMLemail.replace("%data%", bio.contacts[contact].email);
-  	$("#topContacts").prepend(formattedEmail);
-  	
+  	$("#topContacts").append(formattedEmail)  	
    	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[contact].mobile);
-  	$("#topContacts").prepend(formattedMobile);
-
+  	$("#topContacts").append(formattedMobile);  	
+   	var formattedBlog = HTMLmobile.replace("%data%", bio.contacts[contact].blog);
+  	$("#topContacts").append(formattedBlog);
  }
 };
 
 
-$("#header").append(HTMLheaderName.replace("%data%", inName(bio.name)));
+$("#header").append(HTMLheaderName.replace("%data%", bio.name));
 $("#header").append(HTMLheaderRole.replace("%data%", bio.role));
 
 displayContacts();
