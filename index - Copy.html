@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Resume or Chris Gingerich</title>
+    <!-- Load the page styles. -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/helper.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="container">
+        <!-- <div id="main"> -->
+        <header>
+            <div class="row">
+                <div class="col-md-10" id="header"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-10" id="contacts">
+                    <ul id="topContacts" class="flex-box"></ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10" id="bio">
+                    <!-- <div class="clearfix"></div> -->
+                </div>
+            </div>
+        </header>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div style="clear: both;"></div>
+                <div id="workExperience" class="gray">
+                    <h2>Work Experience</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div id="projects">
+                    <h2>Projects</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row>">
+            <div class="col-md-10">
+                <div id="education" class="gray">
+                    <h2>Education</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div id="mapDiv">
+                    <h2>Where I've Lived and Worked</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <footer>
+                    <div id="lets-connect" class="dark-gray">
+                        <h2 class="orange center-text">Let's Connect</h2>
+                        <ul id="footerContacts" class="flex-box">
+                        </ul>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+    </div>
+    <!-- container -->
+
+    <script src="js/resumeBuilder.js"></script>
+
+
+    <script type="text/javascript">
+        if (document.getElementsByClassName('flex-item').length === 0) {
+            document.getElementById('topContacts').style.display = 'none';
+        }
+        if (document.getElementsByTagName('h1').length === 0) {
+            document.getElementById('header').style.display = 'none';
+        }
+        if (document.getElementsByClassName('work-entry').length === 0) {
+            document.getElementById('workExperience').style.display = 'none';
+        }
+        if (document.getElementsByClassName('project-entry').length === 0) {
+            document.getElementById('projects').style.display = 'none';
+        }
+
+        if (document.getElementsByClassName('education-entry').length === 0) {
+            document.getElementById('education').style.display = 'none';
+        }
+        if (document.getElementsByClassName('flex-item').length === 0) {
+            document.getElementById('lets-connect').style.display = 'none';
+        }
+        if (document.getElementById('map') === null) {
+            document.getElementById('mapDiv').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
