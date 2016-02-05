@@ -131,6 +131,7 @@ a {
 .white-text {
   font-weight: bold;
   color: #fff;
+  text-shadow: 2px 2px #000000;
 }
 
 .gray {
@@ -145,11 +146,12 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-image: url(../images/keyboard.jpg);
+  /* background-color: #484848; */
 }
 
-#row {
-  background-color: #484848;
+#name {
+  padding-left: 20px;
 }
 
 .flex-box {

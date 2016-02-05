@@ -21,12 +21,45 @@ var bio = {
 		"linkedin" : "https://www.linkedin.com/in/cgingerich"
 	 }
 	 ],
-	"bioPic" : "http://cgs.vdsworld.com/images/me.jpg",
+	"bioPic" : "images/me.jpg",
 	"welcomeMsg" : "Welcome! Thanks for viewing my resume!",
 	"location" : "Carrboro, North Carolina",
 	"skills" : [" Visual Dialogscript", " JavaScript", " HTML", " Adobe Photoshop", " AutoCAD"],
 };
 
+  formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+  $('#header').prepend(formattedRole);
+
+  formattedName = HTMLheaderName.replace('%data%', bio.name);
+  $('#header').prepend(formattedName);
+
+for(contact in bio.contacts){
+  	var formattedEmail = HTMLemail.replace("%data%", bio.contacts[contact].email);
+  	$("#topContacts").append(formattedEmail)
+  	$("#footerContacts").append(formattedEmail)	
+   	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[contact].mobile);
+  	$("#topContacts").append(formattedMobile);
+  	$("#footerContacts").append(formattedMobile);
+   	var formattedBlog = HTMLblog.replace("%data%", bio.contacts[contact].blog);
+  	$("#topContacts").append(formattedBlog);
+  	$("#footerContacts").append(formattedBlog);
+ }
+
+  formattedWelcomeMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMsg);
+  $('#bio').prepend(formattedWelcomeMsg);
+
+  formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPic);
+  $('#bio').prepend(formattedBioPic);
+
+if (bio.skills.length > 0){
+	$(HTMLskillsStart).insertAfter('.welcome-message');
+	for (var key in bio.skills) {
+	    if (bio.skills.hasOwnProperty(key)) {
+	    	formattedSkills = HTMLskills.replace("%data%", bio.skills[key]);
+	        $("#skills:last").append(formattedSkills);
+	    }
+	}
+};
 
 var education = {
 	"schools": [
@@ -100,38 +133,21 @@ for(project in projects.projects){
 };
 
 
-function displayContacts(){
-for(contact in bio.contacts){
-    //$("#header").append(HTMLcontactStart);
-  	var formattedEmail = HTMLemail.replace("%data%", bio.contacts[contact].email);
-  	$("#topContacts").append(formattedEmail)  	
-   	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[contact].mobile);
-  	$("#topContacts").append(formattedMobile);  	
-   	var formattedBlog = HTMLmobile.replace("%data%", bio.contacts[contact].blog);
-  	$("#topContacts").append(formattedBlog);
- }
-};
 
 
-$("#header").append(HTMLheaderName.replace("%data%", bio.name));
-$("#header").append(HTMLheaderRole.replace("%data%", bio.role));
 
-displayContacts();
 
-$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg));
-$("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
+
+//displayContacts();
+
+
+
+//$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg));
+//$("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
 
 projects.display();
 
-if (bio.skills.length > 0){
-	$("#header").append(HTMLskillsStart);
-	for (var key in bio.skills) {
-	    if (bio.skills.hasOwnProperty(key)) {
-	    	formattedSkills = HTMLskills.replace("%data%", bio.skills[key]);
-	        $("#skills").append(formattedSkills);
-	    }
-	}
-};
+
 
 function displayWork(){
 for(job in work.jobs){
